@@ -1,0 +1,39 @@
+### Listar produtos
+GET localhost:8080/api/products
+
+### Listar produto por id
+GET localhost:8080/api/products/1
+
+### Listar produtos por categoria
+GET localhost:8080/api/products?category=AUDIO
+
+### Cadastra um produto novo
+POST localhost:8080/api/products
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Produto Teste",
+  "description": "Produto Teste é um produto feito para testar o gerenciamento de produtos do servidor.",
+  "price": 100.00,
+  "category": "CATEGORIA"
+}
+
+
+### Atualiza um produto
+PUT localhost:8080/api/products
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": 1,
+  "name": "Produto ATUALIZADO",
+  "description": "Produto ATUALIZADO é um produto feito para testar o gerenciamento de produtos do servidor.",
+  "price": 999.99,
+  "category": "CATEGORIA ATUALIZADA"
+}
+
+### Deleta um produto através do seu id
+DELETE localhost:8080/api/products/1
+Authorization: Bearer {{token}}
+

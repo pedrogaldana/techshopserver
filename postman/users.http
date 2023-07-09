@@ -1,0 +1,57 @@
+### Listar usuários
+GET localhost:8080/api/users
+
+
+### Listar o próprio usuário
+GET localhost:8080/api/users/me
+Authorization: Bearer {{token}}
+
+### Cadastra um usuário
+POST localhost:8080/api/users
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Sample User",
+  "email": "meu@email.com",
+  "password": "12345678"
+}
+
+
+### Listar usuários por id
+GET localhost:8080/api/users/1
+
+
+### Listar usuários por role
+GET localhost:8080/api/users?role=OPERATOR
+
+
+### Login
+POST localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email": "meu@email.com",
+  "password": "12345678"
+}
+> {%
+    client.global.set("token", response.body.token)
+    client.global.set("id", response.body.user.id)
+%}
+
+### Login ADMIN
+POST localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@techshopserver.com",
+  "password": "admin"
+}
+> {%
+    client.global.set("token", response.body.token)
+    client.global.set("id", response.body.user.id)
+%}
+
+### Deleta usuário por id
+DELETE localhost:8080/api/users/1
+Authorization: Bearer {{token}}

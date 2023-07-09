@@ -1,0 +1,49 @@
+### Listar pedidos
+GET localhost:8080/api/orders
+
+### Listar pedido por id
+GET localhost:8080/api/orders/1
+
+### Listar pedidos por status
+GET localhost:8080/api/orders?status=finalizado
+
+### Cadastra um pedido novo através do id do primeiro produto
+POST localhost:8080/api/orders
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "idProduct": 1
+}
+
+### Adiciona produto ao pedido
+PUT localhost:8080/api/orders/product/add
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": 1,
+  "idProduct": 2
+}
+
+### Remove produto do pedido
+PUT localhost:8080/api/orders/product/remove
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": 1,
+  "idProduct": 2
+}
+
+
+### Finaliza o pedido
+PUT localhost:8080/api/orders/conclude
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": 1
+}
+
+
