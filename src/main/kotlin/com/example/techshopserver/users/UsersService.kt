@@ -28,7 +28,7 @@ class UsersService(val usersRepository: UsersRepository, val rolesRepository: Ro
         if (role == null) usersRepository.findAll().sortedBy { it.name } else usersRepository.findAllByRole(role)
 
     fun login(credentials: LoginRequest): LoginResponse? {
-        var user = usersRepository.findByEmail(credentials.email!!) ?: return null
+        val user = usersRepository.findByEmail(credentials.email!!) ?: return null
         if (user.password != credentials.password) return null
         log.info("User logged in. id={} name={}", user.id, user.name)
         return LoginResponse(token = jwt.createToken(user), user = user.toResponse())
