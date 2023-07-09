@@ -5,7 +5,7 @@ GET localhost:8080/api/products
 GET localhost:8080/api/products/1
 
 ### Listar produtos por categoria
-GET localhost:8080/api/products?category=AUDIO
+GET localhost:8080/api/products?category=gamer
 
 ### Cadastra um produto novo
 POST localhost:8080/api/products
@@ -34,6 +34,6 @@ Authorization: Bearer {{token}}
 }
 
 ### Deleta um produto através do seu id
-DELETE localhost:8080/api/products/1
+DELETE localhost:8080/api/products/4
 Authorization: Bearer {{token}}
 
